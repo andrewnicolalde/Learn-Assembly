@@ -18,7 +18,7 @@ nextchar:
 finished:
     sub eax, ebx        ; Subtract the address at EBX from EAX. Remember that we have been incrementing EAX, so it will always be larger.
                         ; When you subtract two memory addresses of the same type from one another, the result is the number of segments
-                        ; between them.
+                        ; between them, which is stored in EAX
     mov edx, eax        ; Copy the calculated length of the string from EAX into EDX, as is necessary for sys_write
     mov ecx, msg        ; Put the address of msg into ecx, as is necessary for sys_write
     mov ebx, 1          ; Put the file descriptor for STDOUT into ebx, as is necessary for sys_write
