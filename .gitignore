@@ -1,0 +1,9 @@
+
+# Ignore everything
+*
+#Unignore directories
+!/**/
+#Unignore any file with an extension
+!*.*
+# Ignore compiled object files
+*.o
