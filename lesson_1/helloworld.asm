@@ -1,5 +1,5 @@
-;This is a hello world for NASM assembly!
-;Please forgive me if any of the terminology is wrong here, somewhat new to this world
+; This is a hello world for NASM assembly!
+; Please forgive me if any of the terminology is wrong here, somewhat new to this world
 SECTION .data
 msg db 'Hello world!', 0ah   ; assign message varibale with the string that is our message, 0ah is linefeed
 
@@ -14,3 +14,6 @@ _start:
                     ; In this case, the function denoted by opcode 4 is sys_write, though some online sources seem to contradict this.
     int 80h         ; Call the kernel, telling it to execute the function denoted by the opcode loaded into EAX.
     ; This program will exit by segfaulting!
+    ; The reason this occurs is because in the absence of any instruction to tell the kernel to stop executing instructions, it just
+    ; carried on and sequentially executed whatever was at the next address in memory, which could have been anything. Whatever it was
+    ; that was there, it made the kernel choke up and terminated the process for us.
